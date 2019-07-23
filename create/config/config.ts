@@ -75,7 +75,7 @@ export default {
   block: {
     defaultGitUrl: 'https://github.com/ant-design/pro-blocks',
   },
- /* history: 'hash',*/
+  history: 'hash',
   hash: true,
   targets: {
     ie: 11,
@@ -128,19 +128,6 @@ export default {
         },
       ],
     },
-    /*{
-      path: '/user',
-      component: '../layouts/UserLayout',
-      Routes: ['src/pages/Authorized'],
-      authority: ['admin', 'user'],
-      routes:[
-        {
-          name: 'login',
-          path: '/user/login',
-          component: './user/login',
-        },
-      ]
-    },*/
 
   ],
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn
