@@ -75,7 +75,7 @@ export default {
   block: {
     defaultGitUrl: 'https://github.com/ant-design/pro-blocks',
   },
-  history: 'hash',
+ /* history: 'hash',*/
   hash: true,
   targets: {
     ie: 11,
@@ -83,39 +83,65 @@ export default {
   devtool: isAntDesignProPreview ? 'source-map' : false,
   // umi routes: https://umijs.org/zh/guide/router.html
   routes: [
+    /**
+     * user
+     */
+
     {
-      path: '/',
+      path: '/user',
+      component: '../layouts/UserLayout',
+      routes:[
+        { path: '/user', redirect: '/user/login' },
+        {
+        name: 'login',
+        path: '/user/login',
+        component: './user/login',
+      }]
+    },
+    //app
+    {
+      path: '/app',
       component: '../layouts/BasicLayout',
       Routes: ['src/pages/Authorized'],
       authority: ['admin', 'user'],
       routes: [
+        { path: '/app', redirect: '/app/welcome/list' },
         {
-          path: '/welcome',
+          path: '/app/welcome',
           name: 'welcome',
           icon: 'smile',
           routes: [
             {
-              path: '/welcome/list/table-list',
+              path: '/app/welcome/list',
               name: 'table-list',
               component: './list/table-list',
             },
             {
               name: 'basic-form',
-              path: '/welcome/form/basic-form',
+              path: '/welcome/add',
               component: './form/basic-form',
             },
           ],
         },
-
         {
           component: './404',
         },
       ],
     },
-    {
-      component: './404',
-    },
-    {},
+    /*{
+      path: '/user',
+      component: '../layouts/UserLayout',
+      Routes: ['src/pages/Authorized'],
+      authority: ['admin', 'user'],
+      routes:[
+        {
+          name: 'login',
+          path: '/user/login',
+          component: './user/login',
+        },
+      ]
+    },*/
+
   ],
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn
   theme: {
