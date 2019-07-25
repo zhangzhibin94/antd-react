@@ -1,8 +1,8 @@
 export default {
-  'menu.welcome': '欢迎',
-  'menu.welcome.welcome2': '测试欢迎啊',
-  'menu.welcome.table-list': '列表',
-  'menu.welcome.basic-form': '新增',
+  'menu.item': '商品管理',
+  'menu.item.welcome2': '测试欢迎啊',
+  'menu.item.table-list': '商品列表',
+  'menu.item.basic-form': '新增',
   'menu.more-blocks': '更多区块',
   'menu.home': '首页',
   'menu.login': '登录',

@@ -86,39 +86,49 @@ export default {
     /**
      * user
      */
-
     {
       path: '/user',
       component: '../layouts/UserLayout',
-      routes:[
-        { path: '/user', redirect: '/user/login' },
+      routes: [
         {
-        name: 'login',
-        path: '/user/login',
-        component: './user/login',
-      }]
-    },
-    //app
+          path: '/user',
+          redirect: '/user/login',
+        },
+        {
+          name: 'login',
+          path: '/user/login',
+          component: './user/login',
+        },
+        {
+          name: 'register',
+          path: '/user/register',
+          component: './user/register',
+        },
+      ],
+    }, //app
     {
       path: '/app',
       component: '../layouts/BasicLayout',
       Routes: ['src/pages/Authorized'],
       authority: ['admin', 'user'],
       routes: [
-        { path: '/app', redirect: '/app/welcome/list' },
         {
-          path: '/app/welcome',
-          name: 'welcome',
+          path: '/app',
+          redirect: '/app/item/list',
+        },
+        {
+          path: '/app/item',
+          name: 'item',
           icon: 'smile',
           routes: [
             {
-              path: '/app/welcome/list',
+              path: '/app/item/list',
               name: 'table-list',
               component: './list/table-list',
             },
             {
               name: 'basic-form',
-              path: '/welcome/add',
+              path: '/app/item/add',
               component: './form/basic-form',
             },
           ],
@@ -128,7 +138,6 @@ export default {
         },
       ],
     },
-
   ],
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn
   theme: {
@@ -150,7 +159,7 @@ export default {
         resourcePath: string;
       },
       _: string,
-      localName: string
+      localName: string,
     ) => {
       if (
         context.resourcePath.includes('node_modules') ||

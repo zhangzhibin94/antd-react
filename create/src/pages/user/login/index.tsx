@@ -45,10 +45,7 @@ export interface FromDataType {
     submitting: loading.effects['userLogin/login'],
   }),
 )
-class Login extends Component<
-  LoginProps,
-  LoginState
-> {
+class Login extends Component<LoginProps, LoginState> {
   loginForm: FormComponentProps['form'] | undefined | null = undefined;
 
   state: LoginState = {
@@ -145,9 +142,11 @@ class Login extends Component<
                 },
               ]}
               onPressEnter={e => {
-                  e.preventDefault();
+                e.preventDefault();
+                if (this.loginForm) {
                   this.loginForm.validateFields(this.handleSubmit);
-                }}
+                }
+              }}
             />
           </Tab>
           <Tab key="mobile" tab={formatMessage({ id: 'user-login.login.tab-login-mobile' })}>
