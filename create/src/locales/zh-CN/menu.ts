@@ -3,6 +3,7 @@ export default {
   'menu.item.welcome2': '测试欢迎啊',
   'menu.item.table-list': '商品列表',
   'menu.item.basic-form': '新增',
+  'menu.item.step-form': '分步表单',
   'menu.more-blocks': '更多区块',
   'menu.home': '首页',
   'menu.login': '登录',

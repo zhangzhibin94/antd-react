@@ -100,9 +100,18 @@ export default {
           component: './user/login',
         },
         {
+          name: 'register-result',
+          path: '/user/register-result',
+          component: './user/register-result',
+        },
+        {
           name: 'register',
           path: '/user/register',
           component: './user/register',
+        },
+        {
+          path: '/user/app',
+          redirect: '/app/item/list',
         },
       ],
     }, //app
@@ -130,6 +139,11 @@ export default {
               name: 'basic-form',
               path: '/app/item/add',
               component: './form/basic-form',
+            },
+            {
+              name: 'step-form',
+              path: '/app/item/step-form',
+              component: './form/step-form',
             },
           ],
         },
@@ -159,7 +173,7 @@ export default {
         resourcePath: string;
       },
       _: string,
-      localName: string,
+      localName: string
     ) => {
       if (
         context.resourcePath.includes('node_modules') ||
