@@ -1,5 +1,5 @@
 # antd-react
-angularJS配置
+antd-react后台管理模板，使用antdesign-pro生成后台管理模板（注意使用的是typescript，而不是javascript）
 # Ant Design Pro
 
 This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
