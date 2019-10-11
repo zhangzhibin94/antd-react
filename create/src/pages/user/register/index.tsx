@@ -81,6 +81,7 @@ export interface UserRegisterParams {
   }),
 )
 class Register extends Component<userRegisterProps, userRegisterState> {
+  registerForm: FormComponentProps['form'] | undefined | null = undefined;
   state: userRegisterState = {
     count: 0,
     confirmDirty: false,
@@ -102,7 +103,11 @@ class Register extends Component<userRegisterProps, userRegisterState> {
           account,
         },
       });
+      userRegister.status = undefined;
+    }else if(userRegister.status === 'error'){
+      message.error(userRegister.firstErrorMessage);
     }
+    userRegister.status = undefined;
   }
 
   componentWillUnmount() {
@@ -119,6 +124,20 @@ class Register extends Component<userRegisterProps, userRegisterState> {
         clearInterval(this.interval);
       }
     }, 1000);
+    const { dispatch,form } = this.props;
+    const mobile = form.getFieldValue('mobile');
+    dispatch({
+      type: 'userRegister/getCaptcha',
+      payload: mobile,
+      method: 'post'
+    })
+   /* this.registerForm.validateFields(['mobile'], {}, (err: any, values: FromDataType) => {
+        const { dispatch } = this.props;
+      dispatch({
+        type: 'userLogin/getCaptcha',
+        payload: values.mobile,
+      })
+    });*/
   };
 
   getPasswordStatus = () => {
@@ -359,7 +378,9 @@ class Register extends Component<userRegisterProps, userRegisterState> {
               </Col>
             </Row>
           </FormItem>
+
           <FormItem>
+
             <Button
               size="large"
               loading={submitting}

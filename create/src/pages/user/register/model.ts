@@ -1,11 +1,12 @@
 import { AnyAction, Reducer } from 'redux';
 
 import { EffectsCommandMap } from 'dva';
-import { fakeRegister } from './service';
+import { fakeRegister,getFakeCaptcha } from './service';
 
 export interface StateType {
   status?: 'ok' | 'error';
   currentAuthority?: 'user' | 'guest' | 'admin';
+  firstErrorMessage: string;
 }
 
 export type Effect = (
@@ -18,6 +19,7 @@ export interface ModelType {
   state: StateType;
   effects: {
     submit: Effect;
+    getCaptcha: Effect;
   };
   reducers: {
     registerHandle: Reducer<StateType>;
@@ -29,6 +31,7 @@ const Model: ModelType = {
 
   state: {
     status: undefined,
+    firstErrorMessage: ''
   },
 
   effects: {
@@ -39,6 +42,9 @@ const Model: ModelType = {
         payload: response,
       });
     },
+    *getCaptcha({ payload }, { call }) {
+      yield call(getFakeCaptcha, payload);
+    },
   },
 
   reducers: {
@@ -46,6 +52,7 @@ const Model: ModelType = {
       return {
         ...state,
         status: payload.status,
+        firstErrorMessage: payload.firstErrorMessage
       };
     },
   },

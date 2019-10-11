@@ -87,6 +87,10 @@ export default {
      * user
      */
     {
+      path:'/',
+      redirect: '/user/login',
+    },
+    {
       path: '/user',
       component: '../layouts/UserLayout',
       routes: [
@@ -201,13 +205,12 @@ export default {
     basePath: '/',
   },
   chainWebpack: webpackPlugin,
-  /*
-  proxy: {
+  /*proxy: {
     '/server/api/': {
-      target: 'https://preview.pro.ant.design/',
+      // target: 'https://preview.pro.ant.design/',
+      target: 'http://http://localhost:8089/',
       changeOrigin: true,
       pathRewrite: { '^/server': '' },
     },
-  },
-  */
+  },*/
 } as IConfig;

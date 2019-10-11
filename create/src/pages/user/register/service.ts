@@ -7,3 +7,6 @@ export async function fakeRegister(params: UserRegisterParams) {
     data: params,
   });
 }
+export async function getFakeCaptcha(mobile: string) {
+  return request(`/api/login/captcha?mobile=${mobile}`);
+}

@@ -11,6 +11,7 @@ export default {
   'user-register.login.signup': '注册账户',
   'user-register.login.login': '登录',
   'user-register.register.register': '注册',
+  'user-register.register.register.failure': '注册失败',
   'user-register.register.get-verification-code': '获取验证码',
   'user-register.register.sign-in': '使用已有账户登录',
   'user-register.register-result.msg': '你的账户：{email} 注册成功',

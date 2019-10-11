@@ -97,7 +97,7 @@ export default {
     });
   },
   'POST /api/register': (req, res) => {
-    res.send({ status: 'ok', currentAuthority: 'user' });
+    res.send({ status: 'error', currentAuthority: 'user', firstErrorMessage:'123afawef'  });
   },
   'GET /api/500': (req, res) => {
     res.status(500).send({
